@@ -38,8 +38,11 @@ jobs:
       - name: Install Requirements
         run:  pip install flask
 
+      - name: Install coverage
+        run: pip install coverage
+
       - name: Unit Test
-        run: python -m unittest -v test
+        run: coverage run -m unittest -v test #python -m unittest -v test
 
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v5
